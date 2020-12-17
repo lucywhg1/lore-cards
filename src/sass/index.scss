@@ -24,4 +24,7 @@ $danger: $cedarchest;
 $link: $etonblue;
 $body-background-color: $ivory;
 
+$panel-block-hover-background-color: $etonblue;
+
+@import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");
 @import "../../node_modules/bulma/bulma.sass";
