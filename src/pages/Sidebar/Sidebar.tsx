@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getCategories } from "../../services/CategoryService";
 import { Category } from "../../types";
 import CategoryBlock from "./CategoryBlock";
-import CharacterDropdown from "./CharacterDropdown";
+import NewCardButton from "./NewCardButton";
 
 interface SidebarProps {
   activeCategory: number; // id
@@ -27,7 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setCategory, activeCategory }) => {
   return (
     <nav className="panel is-primary">
       <p className="panel-heading">Categories</p>
-      <CharacterDropdown />
+      <NewCardButton categoryId={activeCategory} />
       {categories.map((category) => (
         <CategoryBlock
           key={category.id}
