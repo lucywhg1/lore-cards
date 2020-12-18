@@ -1,29 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { getCategories } from "../../services/CategoryService";
-import { Campaign, Category } from "../../types";
+import { Category } from "../../types";
 import CategoryBlock from "./CategoryBlock";
 import CharacterDropdown from "./CharacterDropdown";
 
 interface SidebarProps {
-  campaign: Campaign;
   activeCategory: number; // id
   setCategory: (id: number) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({
-  campaign,
-  setCategory,
-  activeCategory,
-}) => {
+const Sidebar: React.FC<SidebarProps> = ({ setCategory, activeCategory }) => {
   const [categories, setCategories] = useState<Category[]>([]);
 
   useEffect(() => {
     const fetchCategories = async (): Promise<void> => {
-      setCategories(await getCategories(campaign));
+      setCategories(await getCategories());
     };
 
     fetchCategories();
-  }, [campaign]);
+  }, []);
 
   const handleCategorySelect = (id: number) => {
     setCategory(id);

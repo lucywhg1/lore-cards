@@ -9,15 +9,9 @@ const Dashboard: React.FC = () => {
   return (
     <div className="columns">
       <section key="sidebar-col" className="column is-2">
-        <Sidebar
-          campaign={campaign}
-          activeCategory={categoryId}
-          setCategory={setCategoryId}
-        />
+        <Sidebar activeCategory={categoryId} setCategory={setCategoryId} />
       </section>
-      <section key="search-col" className="section column is-3">
-        {categoryId}
-      </section>
+      <section key="search-col" className="section column is-3"></section>
       <section key="card-col" className="section column is-7"></section>
     </div>
   );
