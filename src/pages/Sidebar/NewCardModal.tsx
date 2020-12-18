@@ -1,6 +1,7 @@
 import React from "react";
 import cx from "classnames";
 import Title from "../../components/Title";
+import NewCardForm from "../CardForm/NewCardForm";
 
 interface NewCardModalProps {
   onConfirm: () => void;
@@ -32,15 +33,9 @@ const NewCardModal: React.FC<NewCardModalProps> = ({
             onClick={onClose}
           ></button>
         </header>
-        <section className="modal-card-body"></section>
-        <footer className="modal-card-foot">
-          <button className="button is-success" onClick={handleConfirm}>
-            Confirm
-          </button>
-          <button className="button" aria-label="close" onClick={onClose}>
-            Cancel
-          </button>
-        </footer>
+        <section className="modal-card-body">
+          <NewCardForm onConfirm={handleConfirm} onCancel={onClose} card={{}} />
+        </section>
       </div>
     </div>
   );
