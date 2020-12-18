@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import ControlledInput from "../../components/ControlledInput";
 import { LoreCard } from "../../types";
 import CategoryDropdown from "./CategoryDropdown";
+
+const emptyCard: LoreCard = {
+  title: "",
+  subtitle: "",
+  avatarUrl: "",
+  categoryId: -1,
+  summary: "",
+  description: "",
+  id: -1,
+};
 
 interface NewCardFormProps {
   card: Partial<LoreCard>;
@@ -13,8 +24,22 @@ const NewCardForm: React.FC<NewCardFormProps> = ({
   onConfirm,
   onCancel,
 }) => {
+  const [formData, setFormData] = useState<LoreCard>({
+    ...emptyCard,
+    ...card,
+  });
+
+  const handleChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ): void => {
+    const { id, value } = event.target;
+    console.log(id);
+    console.log(value);
+    setFormData((formData) => ({ ...formData, [id]: value }));
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    console.log("Submitted");
+    console.log(formData);
     event.preventDefault();
     onConfirm();
   };
@@ -22,21 +47,28 @@ const NewCardForm: React.FC<NewCardFormProps> = ({
   return (
     <form onSubmit={handleSubmit}>
       <div className="field is-grouped is-grouped-centered">
-        <div className="control is-expanded">
-          <label className="label">Title</label>
-          <input
-            className="input is-primary"
-            type="text"
-            placeholder="Selune"
-            required
-          />
-        </div>
+        <ControlledInput
+          id="title"
+          placeholder="Selune"
+          onChange={handleChange}
+          value={formData.title}
+          type="text"
+          required={true}
+          fill={true}
+        />
         <CategoryDropdown />
       </div>
       <div className="field is-grouped is-grouped-centered">
         <div className="control is-expanded">
           <label className="label">Subtitle</label>
-          <input className="input" type="text" placeholder="Lady of Light" />
+          <input
+            className="input"
+            type="text"
+            placeholder="Lady of Light"
+            id="subtitle"
+            onChange={handleChange}
+            value={formData.subtitle}
+          />
         </div>
         <div className="control">
           <label className="label">Avatar URL</label>

@@ -8,7 +8,7 @@ export interface LoreCard extends Document {
   summary: string;
   description: string;
   avatarUrl: string;
-  category: string;
+  categoryId: number;
 }
 
 export interface Category extends Document {
