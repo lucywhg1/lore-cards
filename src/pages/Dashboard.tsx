@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Campaign } from "../types";
 import Sidebar from "./Sidebar/Sidebar";
 
 const Dashboard: React.FC = () => {
-  const campaign: Campaign = { name: "meakanu" };
+  const [categoryId, setCategoryId] = useState<number>(0);
+  const campaign: Campaign = { name: "meakanu", id: 0 };
 
   return (
     <div className="columns">
-      <section className="column is-2">
-        <Sidebar campaign={campaign} />
+      <section key="sidebar-col" className="column is-2">
+        <Sidebar
+          campaign={campaign}
+          activeCategory={categoryId}
+          setCategory={setCategoryId}
+        />
       </section>
-      <section className="section column is-3"></section>
-      <section className="section column is-7"></section>
+      <section key="search-col" className="section column is-3">
+        {categoryId}
+      </section>
+      <section key="card-col" className="section column is-7"></section>
     </div>
   );
 };

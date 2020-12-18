@@ -5,17 +5,17 @@ import { Category } from "../../types";
 interface CategoryBlockProps {
   active: boolean;
   category: Category;
-  onSelect: (name: string) => void;
+  onSelect: (id: number) => void;
 }
 const CategoryBlock: React.FC<CategoryBlockProps> = ({
   active,
   category,
   onSelect,
 }) => {
-  const { name, icon, iconColor } = category;
+  const { id, name, icon, iconColor } = category;
 
   const handleClick = (): void => {
-    onSelect(name);
+    onSelect(id);
   };
 
   return (

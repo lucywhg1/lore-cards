@@ -1,11 +1,14 @@
-import { Category } from "../types";
+import { Campaign, Category } from "../types";
 import { db } from "./firebase";
 
-async function getCategories(): Promise<Category[]> {
-  const data = db.collection("campaigns").doc("categories").get();
-  console.log(data);
+async function getCategories(campaign: Campaign): Promise<Category[]> {
+  const snapshot = await db
+    .collection("campaigns")
+    .doc(`campaign${campaign.id}`)
+    .collection("categories")
+    .get();
 
-  return [];
+  return snapshot.docs.map((doc) => doc.data()) as Category[];
 }
 
 export { getCategories };
