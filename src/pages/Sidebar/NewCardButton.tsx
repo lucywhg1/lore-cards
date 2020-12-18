@@ -3,7 +3,7 @@ import React, { useState } from "react";
 interface NewCardProps {
   categoryId: number;
 }
-const NewCardBlock: React.FC<NewCardProps> = ({ categoryId }) => {
+const NewCardButton: React.FC<NewCardProps> = ({ categoryId }) => {
   const [modal, setModal] = useState();
 
   const handleClick = (): void => {};
@@ -23,4 +23,4 @@ const NewCardBlock: React.FC<NewCardProps> = ({ categoryId }) => {
   );
 };
 
-export default NewCardBlock;
+export default NewCardButton;
