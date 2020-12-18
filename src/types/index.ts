@@ -1,3 +1,9 @@
-import Category from "./Category";
+export interface Category {
+  name: string;
+  icon: string;
+  iconColor?: string;
+}
 
-export type { Category };
+export interface Campaign {
+  name: string;
+}
