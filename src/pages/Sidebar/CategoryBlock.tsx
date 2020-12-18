@@ -20,6 +20,7 @@ const CategoryBlock: React.FC<CategoryBlockProps> = ({
 
   return (
     <a
+      role="button"
       className={cx("panel-block", { "is-active": active })}
       onClick={handleClick}
     >
