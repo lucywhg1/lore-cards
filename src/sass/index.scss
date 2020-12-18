@@ -2,7 +2,7 @@
 
 // Import a Google Font
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
-
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 // Brand colors
 $viridiangreen: #209292;
 $etonblue: #77bfa3;
@@ -24,6 +24,13 @@ $danger: $cedarchest;
 $link: $etonblue;
 $body-background-color: $ivory;
 
+// elements
+$title-family: "Fira Sans", sans-serif;
+$title-size: 1.2em;
+// $subtitle-family:
+// $subtitle-size:
+
+// components
 $panel-block-hover-background-color: $etonblue;
 
 @import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");

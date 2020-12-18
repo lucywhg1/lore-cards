@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Title from "../../components/Title";
 import { getCategories } from "../../services/CategoryService";
 import { Category } from "../../types";
 import CategoryBlock from "./CategoryBlock";
@@ -26,7 +27,9 @@ const Sidebar: React.FC<SidebarProps> = ({ setCategory, activeCategory }) => {
 
   return (
     <nav className="panel is-primary">
-      <p className="panel-heading">Categories</p>
+      <p className="panel-heading">
+        <Title className="has-text-light">Categories</Title>
+      </p>
       <NewCardButton categoryId={activeCategory} />
       {categories.map((category) => (
         <CategoryBlock

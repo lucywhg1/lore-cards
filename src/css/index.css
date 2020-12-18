@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 @import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");
 /*! bulma.io v0.9.1 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
@@ -2043,7 +2044,8 @@ a.tag:hover {
 
 .title {
   color: #363636;
-  font-size: 2rem;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.2em;
   font-weight: 600;
   line-height: 1.125; }
   .title strong {
