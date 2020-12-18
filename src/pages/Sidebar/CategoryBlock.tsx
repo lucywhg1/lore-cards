@@ -5,12 +5,24 @@ import { Category } from "../../types";
 interface CategoryBlockProps {
   active: boolean;
   category: Category;
+  onSelect: (id: number) => void;
 }
-const CategoryBlock: React.FC<CategoryBlockProps> = ({ active, category }) => {
-  const { name, icon, iconColor } = category;
+const CategoryBlock: React.FC<CategoryBlockProps> = ({
+  active,
+  category,
+  onSelect,
+}) => {
+  const { id, name, icon, iconColor } = category;
+
+  const handleClick = (): void => {
+    onSelect(id);
+  };
 
   return (
-    <a className={cx("panel-block", { "is-active": active })}>
+    <a
+      className={cx("panel-block", { "is-active": active })}
+      onClick={handleClick}
+    >
       <span
         className={cx("panel-icon", {
           [`has-text-${iconColor}`]: iconColor && !active,
