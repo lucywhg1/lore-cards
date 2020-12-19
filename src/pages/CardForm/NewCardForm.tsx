@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ControlledInput from "../../components/ControlledInput";
+import ControlledTextArea from "../../components/ControlledTextArea";
 import { LoreCard } from "../../types";
 import CategoryDropdown from "./CategoryDropdown";
 
@@ -30,7 +31,9 @@ const NewCardForm: React.FC<NewCardFormProps> = ({
   });
 
   const handleChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    event: React.ChangeEvent<
+      HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
+    >
   ): void => {
     const { id, value } = event.target;
     console.log(id);
@@ -56,39 +59,34 @@ const NewCardForm: React.FC<NewCardFormProps> = ({
           required={true}
           fill={true}
         />
-        <CategoryDropdown />
+        <CategoryDropdown value={formData.categoryId} onChange={handleChange} />
       </div>
       <div className="field is-grouped is-grouped-centered">
-        <div className="control is-expanded">
-          <label className="label">Subtitle</label>
-          <input
-            className="input"
-            type="text"
-            placeholder="Lady of Light"
-            id="subtitle"
-            onChange={handleChange}
-            value={formData.subtitle}
-          />
-        </div>
-        <div className="control">
-          <label className="label">Avatar URL</label>
-          <input
-            className="input"
-            type="text"
-            placeholder="https://img.com/real_img"
-          />
-        </div>
+        <ControlledInput
+          id="subtitle"
+          placeholder="Lady of Light"
+          onChange={handleChange}
+          value={formData.subtitle}
+          type="text"
+          fill
+        />
+        <ControlledInput
+          id="avatarUrl"
+          placeholder="https://img.com/real_img"
+          onChange={handleChange}
+          value={formData.avatarUrl}
+          type="text"
+          label="Avatar URL"
+        />
       </div>
       <div className="field">
-        <div className="control">
-          <label className="label">Description</label>
-          <textarea
-            className="textarea"
-            placeholder="Jot something down..."
-          ></textarea>
-        </div>
+        <ControlledTextArea
+          id="description"
+          placeholder="Jot something down... the first few sentences become a summary."
+          value={formData.description}
+          onChange={handleChange}
+        />
       </div>
-
       <div className="field is-grouped is-grouped-centered">
         <div className="control">
           <button

@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import ControlledSelect from "../../components/ControlledSelect";
+import { getCategories } from "../../services/CategoryService";
+import { Category } from "../../types";
 
-const CategoryDropdown: React.FC = () => {
+interface CategoryDropdownProps {
+  value: number;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+const CategoryDropdown: React.FC<CategoryDropdownProps> = ({
+  value,
+  onChange,
+}) => {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    const fetchCategories = async (): Promise<void> => {
+      setCategories(await getCategories());
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
-    <div className="control">
-      <label className="label">Category</label>
-      <div className="select is-primary">
-        <select required>
-          <option value="">Choose...</option>
-          <option>With options</option>
-        </select>
-      </div>
-    </div>
+    <ControlledSelect
+      id="categoryId"
+      label="Category"
+      value={value}
+      onChange={onChange}
+      required
+    >
+      {categories.map((category) => (
+        <option key={category.id} value={category.id}>
+          {category.name}
+        </option>
+      ))}
+    </ControlledSelect>
   );
 };
 

@@ -2,14 +2,14 @@ import React from "react";
 import cx from "classnames";
 import { startCase } from "lodash";
 
-interface ControlledInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  fill?: boolean;
+interface ControlledTextAreaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id: string;
   label?: string;
+  fill?: boolean;
 }
 
-const ControlledInput: React.FC<ControlledInputProps> = ({
+const ControlledTextArea: React.FC<ControlledTextAreaProps> = ({
   required = false,
   fill = false,
   id,
@@ -22,8 +22,8 @@ const ControlledInput: React.FC<ControlledInputProps> = ({
   return (
     <div className={cx("control", { "is-expanded": fill })}>
       <label className="label">{derivedLabel}</label>
-      <input
-        className={cx("input", { "is-primary": required }, className)}
+      <textarea
+        className={cx("textarea", { "is-primary": required }, className)}
         id={id}
         required={required}
         {...props}
@@ -32,4 +32,4 @@ const ControlledInput: React.FC<ControlledInputProps> = ({
   );
 };
 
-export default ControlledInput;
+export default ControlledTextArea;
