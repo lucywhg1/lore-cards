@@ -1,13 +1,9 @@
 import React from "react";
 import cx from "classnames";
-import { startCase } from "lodash";
+import Control, { ControlProps } from "./Control";
 
-interface ControlledInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
-  fill?: boolean;
-  id: string;
-  label?: string;
-}
+type ControlledInputProps = React.InputHTMLAttributes<HTMLInputElement> &
+  ControlProps;
 
 const ControlledInput: React.FC<ControlledInputProps> = ({
   required = false,
@@ -15,20 +11,18 @@ const ControlledInput: React.FC<ControlledInputProps> = ({
   id,
   className,
   label,
+  icon,
   ...props
 }) => {
-  const derivedLabel = label || startCase(id);
-
   return (
-    <div className={cx("control", { "is-expanded": fill })}>
-      <label className="label">{derivedLabel}</label>
+    <Control id={id} icon={icon} label={label} fill={fill}>
       <input
         className={cx("input", { "is-primary": required }, className)}
         id={id}
         required={required}
         {...props}
       />
-    </div>
+    </Control>
   );
 };
 
