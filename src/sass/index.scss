@@ -1,0 +1,51 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+@import url("https://fonts.googleapis.com/css2?family=Lora");
+
+// Brand colors
+$viridiangreen: #209292;
+$etonblue: #77bfa3;
+$teagreen: #cbdfbd;
+$cornsilk: #faf7dc;
+$mellowapricot: #f2b479;
+$cedarchest: #ba5b4f;
+$ivory: #fbf9e8;
+$ivory-light: #fffef3;
+$umber: #584c3f;
+
+// Update Bulma globals
+$family-sans-serif: "Nunito", sans-serif;
+$family-secondary: "Lora", serif;
+
+// derived-variables.sass
+$primary: $viridiangreen;
+$info: $cornsilk;
+$success: $teagreen;
+$warning: $mellowapricot;
+$danger: $cedarchest;
+$link: $etonblue;
+$body-background-color: $ivory;
+$background: $ivory;
+$scheme-main: $ivory-light;
+
+// elements
+$title-family: $family-secondary;
+$title-size: 1.2em;
+$title-color: $umber;
+$subtitle-family: $family-secondary;
+
+// form
+$label-color: $umber;
+
+// components
+$panel-block-hover-background-color: $etonblue;
+
+// classes
+.is-small-caps {
+  font-variant: small-caps;
+}
+
+@import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");
+@import "../../node_modules/bulma/bulma.sass";
