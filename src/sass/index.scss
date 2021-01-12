@@ -2,6 +2,7 @@
 
 // Import a Google Font
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+@import url("https://fonts.googleapis.com/css2?family=Lora");
 
 // Brand colors
 $viridiangreen: #209292;
@@ -16,7 +17,7 @@ $umber: #584c3f;
 
 // Update Bulma globals
 $family-sans-serif: "Nunito", sans-serif;
-$family-secondary: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+$family-secondary: "Lora", serif;
 
 // derived-variables.sass
 $primary: $viridiangreen;
